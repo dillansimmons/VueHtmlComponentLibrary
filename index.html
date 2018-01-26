@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VUE MODULE</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/codemirror.min.css">
+  <link rel="stylesheet" type="text/css" href="https://codemirror.net/theme/monokai.css">
+  <link rel="stylesheet" href="dist/css/min/style.css">
+</head>
+<body>
+  <div id="comp">
+    <div>
+    <h2>Add new component</h2>
+      
+    <form class="addForm" v-on:submit.prevent="addComp">
+      <input type="text" v-model="text" placeholder="Add new component"/>
+      <button type="submit">Add</button>
+    </form>
+    <h2>Components</h2>
+    <ul class="comp-list">
+      <li v-for="(comp, key) in comps">
+        <div class="component" v-bind:id="key">
+        <input id="title" class="title" v-model="comp.text">
+        <div class="outputPanel" v-html="comp.html">
+        </div>
+        <textarea id="editor" class="editor" v-model="comp.html"></textarea>
+        <button  v-on:click="save(key)">Save</button>
+        <button v-on:click="modalPop(key)">Remove</button>
+          <div class="modal">
+            <div class="box">
+              <h3>Are you sure?</h3>
+              <button v-on:click="modalRemove(key)">Cancel</button>
+              <button v-on:click="removeComp(key)">Yes, Remove</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/xml/xml.min.js"></script>
+<script src="dist/js/all.js"></script>
+</html>
