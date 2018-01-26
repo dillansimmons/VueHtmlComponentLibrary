@@ -3,8 +3,8 @@ Last edited: Jan 2018 - Dillan Simmons :robot:
 
 TO DO: 
 [] - Scoping styles so they don't bleed into global space (possibly by adding CSS input area)
-[] - Live update html output instead of having to save
-[] - Re-order components based on text
+- [ ] Live update html output instead of having to save
+- [ ] Re-order components based on text
 
 ## Setup
 
